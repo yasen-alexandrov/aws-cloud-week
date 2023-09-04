@@ -1,0 +1,6 @@
+name: infra
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: AWS Python Pulumi program to manage cloud resources for AWS Cloud Week demo project.
