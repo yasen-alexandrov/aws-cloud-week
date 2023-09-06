@@ -26,12 +26,12 @@ jobs:
           echo "/home/runner/.pulumi/bin" >> $GITHUB_PATH
     # Install dependencies and  run "pulumi preview" command
       - name: Preview Infra
+        working-directory: ./infra
         run: |
           sudo pip install pipenv
           pipenv lock
           pipenv sync
           pipenv run npm install
-          cd /home/runner/work/aws-cloud-week/infra
           pipenv run pulumi preview --stack Aleksandrov/infra/dev
         env:
         # Supplying environment variables to interact with AWS Cloud provider
