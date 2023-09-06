@@ -31,6 +31,7 @@ jobs:
           pipenv lock
           pipenv sync
           pipenv run npm install
+          cd /home/runner/work/aws-cloud-week/infra
           pipenv run pulumi preview --stack Aleksandrov/infra/dev
         env:
         # Supplying environment variables to interact with AWS Cloud provider
