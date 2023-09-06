@@ -26,12 +26,13 @@ jobs:
           echo "/home/runner/.pulumi/bin" >> $GITHUB_PATH
     # Install dependencies and  deploys resources by running "pulumi up" command
       - name: Deploy Infra
+        working-directory: ./infra
         run: |
           sudo pip install pipenv
           pipenv lock
           pipenv sync
           pipenv run npm install
-          pipenv run pulumi up --yes --stack dev --suppress-outputs
+          pipenv run pulumi up --yes --stack Aleksandrov/infra/dev --suppress-outputs
         env:
         # Supplying environment variables to interact with AWS Cloud provider
         # and allow Pulumi CLI to communicate with Pulumi Service  
@@ -39,4 +40,3 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_REGION: ${{ env.AWS_REGION }}
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
-          #PULUMI_CONFIG_PASSPHRASE: ${{ secrets.PULUMI_CONFIG_PASSPHRASE }}
