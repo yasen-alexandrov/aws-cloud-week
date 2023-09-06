@@ -5,8 +5,8 @@ on:
     branches: [main]
     types: 
       - completed
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
 env:
   AWS_REGION: eu-west-1
   ECS_CLUSTER: app_cluster
