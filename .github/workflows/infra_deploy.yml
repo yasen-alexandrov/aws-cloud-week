@@ -31,7 +31,7 @@ jobs:
           pipenv lock
           pipenv sync
           pipenv run npm install
-          pipenv run pulumi up --yes --stack dev --suppress-outputs
+          pipenv run pulumi up --yes --stack Aleksandrov/infra/dev --suppress-outputs
         env:
         # Supplying environment variables to interact with AWS Cloud provider
         # and allow Pulumi CLI to communicate with Pulumi Service  
